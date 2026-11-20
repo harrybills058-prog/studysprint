@@ -1,0 +1,10 @@
+{
+  "name":"StudySprint",
+  "short_name":"StudySprint",
+  "start_url":".",
+  "display":"standalone",
+  "background_color":"#f5f7fb",
+  "theme_color":"#0b1220",
+  "description":"Free study planner and focus timer.",
+  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}

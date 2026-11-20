@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="StudySprint is a free study planner, focus timer, and progress tracker.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>StudySprint</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="logo">S</span><div><strong>StudySprint</strong><small>Study smarter. Finish more.</small></div></div>
+    <button id="installBtn" class="ghost hidden">Install</button>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">YOUR FREE STUDY COMMAND CENTER</p>
+        <h1>Turn today's study time into visible progress.</h1>
+        <p class="sub">Plan tasks, run focused sessions, and keep your streak alive. Everything stays on this device.</p>
+      </div>
+      <div class="streak-card"><span>🔥</span><div><b id="streak">0</b><small>day streak</small></div></div>
+    </section>
+
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab active" data-tab="today">Today</button>
+      <button class="tab" data-tab="focus">Focus</button>
+      <button class="tab" data-tab="progress">Progress</button>
+    </nav>
+
+    <section id="today" class="panel active">
+      <div class="section-head"><div><p class="eyebrow">TODAY</p><h2>Your study plan</h2></div><button id="addTaskBtn" class="primary">+ Add task</button></div>
+      <div id="taskList" class="task-list"></div>
+      <div id="emptyState" class="empty hidden"><div class="empty-icon">✓</div><h3>Nothing planned yet</h3><p>Add your first task and make today count.</p><button id="emptyAddBtn" class="primary">Add a task</button></div>
+    </section>
+
+    <section id="focus" class="panel">
+      <div class="section-head"><div><p class="eyebrow">FOCUS MODE</p><h2>One task. No excuses.</h2></div></div>
+      <div class="focus-card">
+        <div class="timer" id="timer">25:00</div>
+        <p id="timerLabel">Ready for a focus session?</p>
+        <div class="timer-actions">
+          <button id="startTimer" class="primary">Start</button>
+          <button id="resetTimer" class="ghost">Reset</button>
+        </div>
+        <div class="quick-times">
+          <button data-minutes="25">25 min</button><button data-minutes="50">50 min</button><button data-minutes="5">5 min</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="progress" class="panel">
+      <div class="section-head"><div><p class="eyebrow">PROGRESS</p><h2>Small wins add up.</h2></div></div>
+      <div class="stats">
+        <div class="stat"><span>Tasks done</span><b id="doneCount">0</b></div>
+        <div class="stat"><span>Tasks planned</span><b id="plannedCount">0</b></div>
+        <div class="stat"><span>Focus minutes</span><b id="focusMinutes">0</b></div>
+      </div>
+      <div class="progress-card"><div class="progress-top"><span>Today's completion</span><b id="progressText">0%</b></div><div class="bar"><div id="progressBar"></div></div></div>
+    </section>
+  </main>
+
+  <dialog id="taskDialog">
+    <form method="dialog" id="taskForm">
+      <button type="button" id="closeDialog" class="close" aria-label="Close">×</button>
+      <p class="eyebrow">NEW TASK</p>
+      <h2>Add a study task</h2>
+      <label>Subject<input id="subjectInput" required maxlength="40" placeholder="e.g. Biology"></label>
+      <label>Task<input id="taskInput" required maxlength="80" placeholder="e.g. Revise cell division"></label>
+      <label>Minutes<input id="minutesInput" type="number" min="5" max="300" value="30" required></label>
+      <button class="primary full" type="submit">Add to today's plan</button>
+    </form>
+  </dialog>
+
+  <footer>StudySprint • Free forever MVP • Your data stays on your device.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
